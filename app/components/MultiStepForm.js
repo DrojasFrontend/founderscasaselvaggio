@@ -137,27 +137,27 @@ const MultiStepForm = () => {
           <>
             <Row>
               <Col md={6}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>Nombre</Form.Label>
                   <Form.Control
+                    className="border-bottom rounded-0"
                     type="text"
                     name="nombre"
                     value={formData.nombre}
                     onChange={handleChange}
-                    placeholder="Respuesta"
                     required
                   />
                 </Form.Group>
               </Col>
               <Col md={6}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>Apellidos</Form.Label>
                   <Form.Control
+                    className="border-bottom rounded-0"
                     type="text"
                     name="apellidos"
                     value={formData.apellidos}
                     onChange={handleChange}
-                    placeholder="Respuesta"
                     required
                   />
                 </Form.Group>
@@ -165,58 +165,65 @@ const MultiStepForm = () => {
             </Row>
             <Row>
               <Col md={6}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
+                    className="border-bottom rounded-0"
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="Respuesta"
                     required
                   />
                 </Form.Group>
               </Col>
               <Col md={6}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>Usuario de Instagram</Form.Label>
                   <Form.Control
+                    className="border-bottom rounded-0"
                     type="text"
                     name="instagram"
                     value={formData.instagram}
                     onChange={handleChange}
-                    placeholder="Respuesta"
                   />
                 </Form.Group>
               </Col>
             </Row>
             <Row>
               <Col md={6}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>Número Celular</Form.Label>
                   <PhoneInput
+                    className="rounded-0 bg-white"
                     country={'co'}
                     value={formData.telefono}
                     onChange={handlePhoneChange}
                     inputProps={{
                       name: 'telefono',
                       required: true,
-                      placeholder: '8023456789'
+                      style: { 
+                        width: '100%',
+                        height: '38px',
+                        fontSize: '1rem'
+                      }
                     }}
-                    containerClass=""
+                    containerStyle={{
+                      width: '100%'
+                    }}
+                    inputClass="form-control"
                   />
                 </Form.Group>
               </Col>
               <Col md={6}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>¿Cómo nos conociste?</Form.Label>
                   <Form.Select
+                    className="border-bottom rounded-0 bg-white"
                     name="comoNosConociste"
                     value={formData.comoNosConociste}
                     onChange={handleChange}
-                    placeholder="Respuesta"
                   >
-                    <option value="">Selecciona una opción</option>
                     <option value="Instagram">Instagram</option>
                     <option value="Facebook">Facebook</option>
                     <option value="Amigos">Recomendación de amigos</option>
@@ -228,15 +235,14 @@ const MultiStepForm = () => {
             </Row>
             <Row>
               <Col md={6}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>Account Type</Form.Label>
                   <Form.Select
+                    className="border-bottom rounded-0 bg-white"
                     name="tipoUsuario"
                     value={formData.tipoUsuario}
                     onChange={handleChange}
-                    placeholder="Respuesta"
                   >
-                    <option value="">Selecciona una opción</option>
                     <option value="Personal">Personal</option>
                     <option value="Empresarial">Empresarial</option>
                     <option value="Otro">Otro</option>
@@ -262,28 +268,28 @@ const MultiStepForm = () => {
 
             <Row className="mb-4">
               <Col md={6}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>¿Cuál fue la última experiencia de viaje verdaderamente transformadora que viviste en los últimos 12 meses?</Form.Label>
                   <Form.Control
+                    className="border-bottom rounded-0"
                     as="textarea"
-                    rows={3}
+                    rows={1}
                     name="experienciaViaje"
                     value={formData.experienciaViaje}
                     onChange={handleChange}
-                    placeholder="Respuesta..."
                   />
                 </Form.Group>
               </Col>
               <Col md={6}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>El valor de nuestras experiencias refleja su excepcionalidad. ¿Valoras la calidad por encima del precio en tus viajes?</Form.Label>
                   <Form.Control
+                    className="border-bottom rounded-0"
                     as="textarea"
-                    rows={3}
+                    rows={1}
                     name="valorExperiencias"
                     value={formData.valorExperiencias}
                     onChange={handleChange}
-                    placeholder="Respuesta..."
                   />
                 </Form.Group>
               </Col>
@@ -291,50 +297,47 @@ const MultiStepForm = () => {
 
             <Row className="mb-4">
               <Col md={6}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>¿Qué importancia tiene para ti compartir experiencias extraordinarias con personas que comparten tu visión de vida?</Form.Label>
                   <Form.Control
+                    className="border-bottom rounded-0"
                     type="text"
                     name="importanciaCompartir"
                     value={formData.importanciaCompartir}
                     onChange={handleChange}
-                    placeholder="Your Last Name"
                   />
                 </Form.Group>
               </Col>
               <Col md={6}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>¿Qué ritual personal nunca falta en tus viajes?</Form.Label>
                   <Form.Control
+                    className="border-bottom rounded-0"
                     type="text"
                     name="ritualPersonal"
                     value={formData.ritualPersonal}
                     onChange={handleChange}
-                    placeholder="Your Last Name"
                   />
-                  <Form.Text className="text-muted">
-                    Pregunta adicional
-                  </Form.Text>
                 </Form.Group>
               </Col>
             </Row>
 
             <Row className="mb-4">
               <Col md={12}>
-                <Form.Group className="mb-4 bg-gray p-2 px-3">
+                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>Si pudieras definir tu filosofía de viaje en tres palabras, ¿cuáles serían?</Form.Label>
                   <Form.Control
+                    className="border-bottom rounded-0"
                     type="text"
                     name="filosofiaViaje"
                     value={formData.filosofiaViaje}
                     onChange={handleChange}
-                    placeholder="Your Email Address"
                   />
                 </Form.Group>
               </Col>
             </Row>
 
-            <div className="d-flex justify-content-between mt-4">
+            <div className="d-flex justify-content-center mt-4 gap-5">
               <Button variant="outline-secondary" onClick={() => setStep(1)}>
                 Cancelar
               </Button>

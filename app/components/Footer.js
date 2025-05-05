@@ -79,7 +79,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="copyright text-center mt-5 pt-5 mb-0">© Copyright 2024, CASA SELVAGGIO</p>
+        <p className="copyright text-center mt-5 pt-5 mb-0">© Copyright 2025, CASA SELVAGGIO</p>
       </div>
     </footer>
   );

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const TextoImagen = () => {
     return (
-        <div className="container py-5">
+        <div className="container py-lg-5">
             <div className="row d-flex flex-column-reverse flex-lg-row">
                 <div className="col-12 col-lg-6 pt-4 pt-lg-0">
                     <h2>Lorem Ipsum Dolor</h2>
@@ -17,7 +17,7 @@ const TextoImagen = () => {
                     </p>
                 </div>
                 <div className="col-12 col-lg-6">
-                    <Image src="/images/relax.png" alt="Imagen" className='img-fluid w-100' width={437} height={623} />
+                    <Image src="/images/relax.png" alt="Imagen" className='img-fluid' width={437} height={623} />
                 </div>
             </div>
         </div>

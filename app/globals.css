@@ -214,15 +214,12 @@ footer {
   border: 0 !important;
   padding: 0 !important;
   background: transparent !important;
+  border-bottom: none !important;
 }
 
 .bg-gray {
   border-radius: 4px;
   background-color: rgba(239, 241, 249, 0.60);
-}
-
-.react-tel-input .selected-flag {
-  background-color: #f5f6fc !important;
 }
 
 .form-select {
@@ -271,7 +268,28 @@ footer {
 }
 
 .react-tel-input .form-control {
-  padding-left: 24px !important;
+  background: #fff !important;
+  color: #333 !important;
+  border: none !important;
+  border-bottom: 1px solid #ced4da !important;
+  border-radius: 0 !important;
+  width: 100% !important;
+  outline: none !important;
+  padding-left: 56px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  transition: border-color 0.15s ease-in-out !important;
+}
+
+.react-tel-input .form-control:focus {
+  box-shadow: none !important;
+  border-color: #1A3C34 !important;
+}
+
+.react-tel-input .flag-dropdown {
+  background: #fff !important;
+  border: none !important;
+  border-radius: 0 !important;
 }
 
 /* Estilos para el header con scroll */
@@ -298,4 +316,14 @@ header.bg-white {
 .modal-content {
   border-radius: 0px !important;
   background-color: #1A3C34 !important;
+}
+
+.react-tel-input .selected-flag {
+  background-color: #fff !important;
+  padding: 0 !important;
+}
+
+.btn.btn-outline-secondary:hover {
+  background-color: #fff !important;
+  color: #1A3C34 !important;
 }
