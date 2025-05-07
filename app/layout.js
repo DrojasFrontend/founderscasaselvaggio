@@ -1,6 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { ApolloProvider } from '@apollo/client'
+import client from './lib/apollo-client'
+import ApolloWrapper from "./lib/ApolloWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +23,11 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ApolloWrapper>
+          {children}
+        </ApolloWrapper>
+      </body>
     </html>
   );
 }

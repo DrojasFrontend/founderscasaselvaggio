@@ -2,7 +2,8 @@
 
 import React from 'react';
 
-const Video = () => {
+const Video = ({ videoUrl }) => {
+  if (!videoUrl) return null;
   return (
     <div className="video-container">
       <video
@@ -14,7 +15,7 @@ const Video = () => {
         muted
         className="responsive-video"
       >
-        <source src="/video.mp4" type="video/mp4" />
+        <source src={videoUrl} type="video/mp4" />
         Tu navegador no soporta el elemento de video.
       </video>
     </div>

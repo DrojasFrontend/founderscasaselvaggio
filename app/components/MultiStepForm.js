@@ -353,7 +353,7 @@ const MultiStepForm = () => {
   };
 
   return (
-    <Container className="my-5">
+    <Container className="my-lg-5">
       <Row className="justify-content-center">
         <Col>
           <div className="form-container p-lg-5 py-4 px-3 border rounded shadow-none">
