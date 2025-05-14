@@ -11,7 +11,6 @@ export async function POST(request) {
       telefono, 
       instagram, 
       comoNosConociste, 
-      tipoUsuario,
       experienciaViaje,
       valorExperiencias,
       importanciaCompartir,
@@ -52,7 +51,6 @@ export async function POST(request) {
         <p><strong>Teléfono:</strong> ${telefono}</p>
         <p><strong>Instagram:</strong> ${instagram || 'No proporcionado'}</p>
         <p><strong>¿Cómo nos conociste?:</strong> ${comoNosConociste || 'No proporcionado'}</p>
-        <p><strong>Tipo de usuario:</strong> ${tipoUsuario || 'No proporcionado'}</p>
         
         <h2>Información adicional</h2>
         <p><strong>Experiencia de viaje transformadora:</strong> ${experienciaViaje || 'No proporcionado'}</p>
