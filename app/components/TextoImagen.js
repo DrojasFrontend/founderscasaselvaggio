@@ -15,8 +15,6 @@ const TextoImagen = ({ grupo, className }) => {
   let descripcion = grupo?.descripcion || '';
   const fraseResaltar = "Selvaggio es una comunidad exclusiva";
 
-  console.log(grupo?.items);
-
   return (
     <section className="customSeccionTextoImagen">
       <div className={`container py-lg-5`}>
