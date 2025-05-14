@@ -43,6 +43,10 @@ a {
 }
 
 /* Header */
+header {
+  z-index: 10;
+}
+
 .bg-header {
   background-color: #1A3C34 !important;
 }
@@ -327,3 +331,14 @@ header.bg-white {
   background-color: #fff !important;
   color: #1A3C34 !important;
 }
+
+/* Swiper */
+.swiper-pagination-bullet {
+  background: #fff !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #1A3C34 !important;
+}
+
+

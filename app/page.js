@@ -17,18 +17,32 @@ const VIDEO_QUERY = `
   }
 `;
 
+const TITULO_QUERY = `
+  query GetVideo {
+    page(id: "9", idType: DATABASE_ID) {
+      paginaInicio {
+        grupo {
+          titulo
+        }
+      }
+    }
+  }
+`;
+
 const TEXTO_IMAGEN_QUERY = `
   query GetTextoImagen {
     page(id: "9", idType: DATABASE_ID) {
       paginaInicio {
         mostrarTextoImagen
         grupoTextoImagen {
-          titulo
           descripcion
-          imagen {
-            node {
-              mediaItemUrl
-              altText
+          titulo
+          items {
+            imagen {
+              node {
+                altText
+                mediaItemUrl
+              }
             }
           }
         }
@@ -43,14 +57,16 @@ const IMAGEN_TEXTO__QUERY = `
       paginaInicio {
         mostrarImagenTexto
         grupoImagenTexto {
-          imagen {
-            node {
-              mediaItemUrl
-              altText
+          descripcion
+          titulo
+          items {
+            imagen {
+              node {
+                altText
+                mediaItemUrl
+              }
             }
           }
-          titulo
-          descripcion
         }
       }
     }
@@ -76,11 +92,15 @@ const FOOTER_QUERY = `
 
 export default async function Home() {
   const videoData = await fetchGraphQL(VIDEO_QUERY);
+  const tituloData = await fetchGraphQL(TITULO_QUERY);
   const textoImagenData = await fetchGraphQL(TEXTO_IMAGEN_QUERY);
   const imagenTextoData = await fetchGraphQL(IMAGEN_TEXTO__QUERY);
   const footerData = await fetchGraphQL(FOOTER_QUERY);
 
   const videoUrl = videoData?.page?.paginaInicio?.grupoHero?.video;
+
+  const titulo = tituloData?.page?.paginaInicio?.grupo?.titulo;
+
   const mostrarTextoImagen = textoImagenData?.page?.paginaInicio?.mostrarTextoImagen;
   const grupoTextoImagen = textoImagenData?.page?.paginaInicio?.grupoTextoImagen;
 
@@ -94,6 +114,14 @@ export default async function Home() {
       <Header />
       <div className="mb-5">
         <Video videoUrl={videoUrl} />
+      </div>
+
+      <div className="container">
+        <div className="row">
+          <div className="col-12 col-lg-7 m-auto text-center">
+            <h1>{titulo}</h1>
+          </div>
+        </div>
       </div>
 
       {mostrarTextoImagen && <TextoImagen grupo={grupoTextoImagen} className="flex-column-reverse flex-lg-row" />}

@@ -16,7 +16,6 @@ const MultiStepForm = () => {
     telefono: '',
     instagram: '',
     comoNosConociste: '',
-    tipoUsuario: '',
     experienciaViaje: '',
     valorExperiencias: '',
     importanciaCompartir: '',
@@ -106,7 +105,6 @@ const MultiStepForm = () => {
           telefono: '',
           instagram: '',
           comoNosConociste: '',
-          tipoUsuario: '',
           experienciaViaje: '',
           valorExperiencias: '',
           importanciaCompartir: '',
@@ -146,6 +144,7 @@ const MultiStepForm = () => {
                     value={formData.nombre}
                     onChange={handleChange}
                     required
+                    autoComplete="off"
                   />
                 </Form.Group>
               </Col>
@@ -159,6 +158,7 @@ const MultiStepForm = () => {
                     value={formData.apellidos}
                     onChange={handleChange}
                     required
+                    autoComplete="off"
                   />
                 </Form.Group>
               </Col>
@@ -174,6 +174,7 @@ const MultiStepForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    autoComplete="off"
                   />
                 </Form.Group>
               </Col>
@@ -181,11 +182,12 @@ const MultiStepForm = () => {
                 <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>Usuario de Instagram</Form.Label>
                   <Form.Control
-                    className="border-bottom rounded-0"
+                    className="border-bottom rounded-0 mt-1"
                     type="text"
                     name="instagram"
                     value={formData.instagram}
                     onChange={handleChange}
+                    autoComplete="off"
                   />
                 </Form.Group>
               </Col>
@@ -233,23 +235,6 @@ const MultiStepForm = () => {
                 </Form.Group>
               </Col>
             </Row>
-            <Row>
-              <Col md={6}>
-                <Form.Group className="mb-4 bg-white p-2 px-3">
-                  <Form.Label>Account Type</Form.Label>
-                  <Form.Select
-                    className="border-bottom rounded-0 bg-white"
-                    name="tipoUsuario"
-                    value={formData.tipoUsuario}
-                    onChange={handleChange}
-                  >
-                    <option value="Personal">Personal</option>
-                    <option value="Empresarial">Empresarial</option>
-                    <option value="Otro">Otro</option>
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-            </Row>
             <div className="d-flex justify-content-center mt-4 gap-5">
               <Button variant="outline-secondary" onClick={() => { }}>
                 Cancelar
@@ -277,6 +262,7 @@ const MultiStepForm = () => {
                     name="experienciaViaje"
                     value={formData.experienciaViaje}
                     onChange={handleChange}
+                    autoComplete="off"
                   />
                 </Form.Group>
               </Col>
@@ -290,6 +276,7 @@ const MultiStepForm = () => {
                     name="valorExperiencias"
                     value={formData.valorExperiencias}
                     onChange={handleChange}
+                    autoComplete="off"
                   />
                 </Form.Group>
               </Col>
@@ -305,6 +292,7 @@ const MultiStepForm = () => {
                     name="importanciaCompartir"
                     value={formData.importanciaCompartir}
                     onChange={handleChange}
+                    autoComplete="off"
                   />
                 </Form.Group>
               </Col>
@@ -317,6 +305,7 @@ const MultiStepForm = () => {
                     name="ritualPersonal"
                     value={formData.ritualPersonal}
                     onChange={handleChange}
+                    autoComplete="off"
                   />
                 </Form.Group>
               </Col>
@@ -332,6 +321,7 @@ const MultiStepForm = () => {
                     name="filosofiaViaje"
                     value={formData.filosofiaViaje}
                     onChange={handleChange}
+                    autoComplete="off"
                   />
                 </Form.Group>
               </Col>
