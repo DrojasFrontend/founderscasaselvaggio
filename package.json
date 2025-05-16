@@ -20,7 +20,8 @@
     "react-bootstrap": "^2.10.9",
     "react-dom": "^18.2.0",
     "react-phone-input-2": "^2.15.1",
-    "swiper": "^11.2.6"
+    "swiper": "^11.2.6",
+    "yet-another-react-lightbox": "^3.23.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

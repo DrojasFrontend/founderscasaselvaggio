@@ -248,8 +248,8 @@ const MultiStepForm = () => {
       case 2:
         return (
           <>
-            <h2 className="mb-2">Aquí empieza tu viaje con Casa Selvaggio</h2>
-            <p className="mb-4">Solo unos pocos son parte. Si estás entre ellos, te lo haremos saber…</p>
+            {/* <h2 className="mb-2">Aquí empieza tu viaje con Casa Selvaggio</h2>
+            <p className="mb-4">Solo unos pocos son parte. Si estás entre ellos, te lo haremos saber…</p> */}
 
             <Row className="mb-4">
               <Col md={6}>
