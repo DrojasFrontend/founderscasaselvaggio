@@ -12,36 +12,36 @@
 }
 
 @font-face {
-	font-family: "Bilo";
-	src: url("/fonts/Bilo.woff2") format("woff2"),
-		url("/fonts/Bilo.woff") format("woff");
-	font-weight: normal;
-	font-style: normal;
+  font-family: "Bilo";
+  src: url("/fonts/Bilo.woff2") format("woff2"),
+    url("/fonts/Bilo.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-	font-family: "Bilo";
-	src: url("/fonts/Bilo-Light.woff2") format("woff2"),
-		url("/fonts/Bilo-Light.woff") format("woff");
-	font-weight: 300;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Bilo";
+  src: url("/fonts/Bilo-Light.woff2") format("woff2"),
+    url("/fonts/Bilo-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: "Bilo";
-	src: url("/fonts/Bilo-Bold.woff2") format("woff2"),
-		url("/fonts/Bilo-Bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
+  font-family: "Bilo";
+  src: url("/fonts/Bilo-Bold.woff2") format("woff2"),
+    url("/fonts/Bilo-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
 }
 
 @font-face {
-	font-family: "DidotLTStd";
-	src: url("/fonts/DidotLTStd-Bold.woff2") format("woff2"),
-		url("/fonts/DidotLTStd-Bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
+  font-family: "DidotLTStd";
+  src: url("/fonts/DidotLTStd-Bold.woff2") format("woff2"),
+    url("/fonts/DidotLTStd-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
 }
 
 html,
@@ -140,8 +140,7 @@ footer {
   transition: width 0.5s ease-in-out;
 }
 
-.progress-bar {
-}
+.progress-bar {}
 
 /* Estilos para inputs y botones del formulario */
 .form-control {
@@ -234,9 +233,7 @@ footer {
 }
 
 /* Form */
-.form-container {
-
-}
+.form-container {}
 
 .form-label {
   color: #5E6366;
@@ -394,5 +391,3 @@ header.bg-white {
     height: 620px !important;
   }
 }
-
-
