@@ -27,11 +27,18 @@ const MultiStepForm = () => {
   const [showThankYouModal, setShowThankYouModal] = useState(false);
   // Estado para controlar si estamos en modo desarrollo
   const [isDev, setIsDev] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   // Verificar si estamos en desarrollo
   useEffect(() => {
     setIsDev(process.env.NODE_ENV === 'development');
   }, []);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   // Función para mostrar el modal directamente (solo para desarrollo)
   const showModalForDev = () => {
@@ -58,6 +65,13 @@ const MultiStepForm = () => {
       ...prevData,
       telefono: value
     }));
+  };
+
+  // Evita submit con Enter en el paso 1
+  const handleKeyDown = (e) => {
+    if (step === 1 && e.key === 'Enter') {
+      e.preventDefault();
+    }
   };
 
   // Avanza al siguiente paso
@@ -145,6 +159,7 @@ const MultiStepForm = () => {
                     onChange={handleChange}
                     required
                     autoComplete="off"
+                    onKeyDown={handleKeyDown}
                   />
                 </Form.Group>
               </Col>
@@ -159,6 +174,7 @@ const MultiStepForm = () => {
                     onChange={handleChange}
                     required
                     autoComplete="off"
+                    onKeyDown={handleKeyDown}
                   />
                 </Form.Group>
               </Col>
@@ -175,6 +191,7 @@ const MultiStepForm = () => {
                     onChange={handleChange}
                     required
                     autoComplete="off"
+                    onKeyDown={handleKeyDown}
                   />
                 </Form.Group>
               </Col>
@@ -188,6 +205,8 @@ const MultiStepForm = () => {
                     value={formData.instagram}
                     onChange={handleChange}
                     autoComplete="off"
+                    required
+                    onKeyDown={handleKeyDown}
                   />
                 </Form.Group>
               </Col>
@@ -208,12 +227,14 @@ const MultiStepForm = () => {
                         width: '100%',
                         height: '38px',
                         fontSize: '1rem'
-                      }
+                      },
+                      onKeyDown: handleKeyDown
                     }}
                     containerStyle={{
                       width: '100%'
                     }}
                     inputClass="form-control"
+                    required
                   />
                 </Form.Group>
               </Col>
@@ -225,6 +246,7 @@ const MultiStepForm = () => {
                     name="comoNosConociste"
                     value={formData.comoNosConociste}
                     onChange={handleChange}
+                    required
                   >
                     <option value="Instagram">Instagram</option>
                     <option value="Facebook">Facebook</option>
@@ -239,7 +261,7 @@ const MultiStepForm = () => {
               <Button variant="outline-secondary" onClick={() => { }}>
                 Cancelar
               </Button>
-              <Button variant="success" onClick={nextStep}>
+              <Button variant="success" type="button" onClick={nextStep}>
                 Siguiente
               </Button>
             </div>
@@ -263,6 +285,7 @@ const MultiStepForm = () => {
                     value={formData.experienciaViaje}
                     onChange={handleChange}
                     autoComplete="off"
+                    required
                   />
                 </Form.Group>
               </Col>
@@ -277,6 +300,7 @@ const MultiStepForm = () => {
                     value={formData.valorExperiencias}
                     onChange={handleChange}
                     autoComplete="off"
+                    required
                   />
                 </Form.Group>
               </Col>
@@ -293,6 +317,7 @@ const MultiStepForm = () => {
                     value={formData.importanciaCompartir}
                     onChange={handleChange}
                     autoComplete="off"
+                    required
                   />
                 </Form.Group>
               </Col>
@@ -306,6 +331,7 @@ const MultiStepForm = () => {
                     value={formData.ritualPersonal}
                     onChange={handleChange}
                     autoComplete="off"
+                    required
                   />
                 </Form.Group>
               </Col>
@@ -322,6 +348,7 @@ const MultiStepForm = () => {
                     value={formData.filosofiaViaje}
                     onChange={handleChange}
                     autoComplete="off"
+                    required
                   />
                 </Form.Group>
               </Col>
@@ -377,9 +404,17 @@ const MultiStepForm = () => {
               </div>
             )}
 
-            <Form onSubmit={handleSubmit}>
-              {renderStep()}
-            </Form>
+            {/* Renderizado condicional de pasos */}
+            {step === 1 && (
+              // Paso 1: solo JSX, sin form
+              renderStep()
+            )}
+            {step === 2 && (
+              // Paso 2: con form y submit
+              <Form onSubmit={handleSubmit}>
+                {renderStep()}
+              </Form>
+            )}
           </div>
         </Col>
       </Row>
@@ -396,8 +431,8 @@ const MultiStepForm = () => {
           />
         </div>
         <Modal.Body>
-          <p className='text-white text-center fw-bold mb-4'>Jorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p className='text-white text-center mb-4'>Jorem ipsum dolor sit amet, consectetur adipiscing elit.  Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+          <p className='text-white text-center fw-bold mb-4'>Gracias por tu interés en formar parte de Casa Selvaggio</p>
+          <p className='text-white text-center mb-4'>Solo unos pocos son parte. Si estás entre ellos, te lo haremos saber…</p>
         </Modal.Body>
         <Button className='d-inline-block btn btn-white m-auto mb-4' onClick={handleCloseThankYouModal}>
           Cerrar

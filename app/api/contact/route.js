@@ -26,10 +26,21 @@ export async function POST(request) {
       );
     }
 
+    // LOG para depuración de variables de entorno
+    console.log('CONFIG SMTP:', {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      secure: process.env.SMTP_SECURE,
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD ? '***' : undefined,
+      from: process.env.SMTP_FROM_EMAIL,
+      to: process.env.SMTP_TO_EMAIL,
+    });
+
     // Configurar el transporter de Nodemailer
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
+      port: Number(process.env.SMTP_PORT), // Aseguramos que sea número
       secure: process.env.SMTP_SECURE === 'true',
       auth: {
         user: process.env.SMTP_USER,
