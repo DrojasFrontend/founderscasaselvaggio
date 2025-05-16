@@ -8,7 +8,7 @@ import ApolloWrapper from "./lib/ApolloWrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Founders Casa Selvaggio",
+  title: "CasaSelvaggio Founders",
   description: "Proyecto inmobiliario exclusivo",
 };
 
