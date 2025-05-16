@@ -23,7 +23,8 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
       </head>
-      <body className={inter.className}>
+      {/* <body className={inter.className}> */}
+      <body>
         <ApolloWrapper>
           {children}
         </ApolloWrapper>

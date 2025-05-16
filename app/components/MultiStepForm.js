@@ -248,8 +248,8 @@ const MultiStepForm = () => {
       case 2:
         return (
           <>
-            <h2 className="mb-2">Lorem Ipsum</h2>
-            <p className="mb-4">Lorem Ipsum Dolor</p>
+            <h2 className="mb-2">Aquí empieza tu viaje con Casa Selvaggio</h2>
+            <p className="mb-4">Solo unos pocos son parte. Si estás entre ellos, te lo haremos saber…</p>
 
             <Row className="mb-4">
               <Col md={6}>
@@ -348,8 +348,8 @@ const MultiStepForm = () => {
         <Col>
           <div className="form-container p-lg-5 py-4 px-3 border rounded shadow-none">
             {/* Barra de progreso */}
-            <h2 className="mb-2">Lorem Ipsum Dolor</h2>
-            <p className="mb-2">Lorem Ipsum Dolor</p>
+            <h2 className="mb-2">Aquí empieza tu viaje con Casa Selvaggio</h2>
+            <p className="mb-2">Solo unos pocos son parte. Si estás entre ellos, te lo haremos saber…</p>
 
             {/* Botón de prueba para mostrar el modal (solo en desarrollo) */}
             {/* {isDev && (

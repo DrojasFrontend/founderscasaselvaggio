@@ -17,12 +17,14 @@ const TextoImagen = ({ grupo, className }) => {
 
   return (
     <section className="customSeccionTextoImagen">
-      <div className={`container py-lg-5`}>
+      <div className={`container pt-lg-5`}>
         <div className={`row d-flex ${className}`}>
-          <div className="d-flex flex-column justify-content-center col-12 col-lg-6 pt-4 pt-lg-0">
-            <h2>{grupo?.titulo}</h2>
-            <div className='mb-4'>
-              {parse(descripcion)}
+          <div className="d-flex flex-column col-12 col-lg-6">
+            <div className='bg-primary p-5 h-100 mt-4 mt-lg-0'>
+              <h2 className='text-center text-white mb-4'>{grupo?.titulo}</h2>
+              <div className=''>
+                {parse(descripcion)}
+              </div>
             </div>
           </div>
           <div className="col-12 col-lg-6">
@@ -41,8 +43,10 @@ const TextoImagen = ({ grupo, className }) => {
                       src={item.imagen.node.mediaItemUrl}
                       alt={item.imagen.node.altText || 'Imagen'}
                       className='img-fluid'
-                      width={437}
-                      height={623}
+                      width={1000}
+                      height={100}
+                      quality={100}
+                      priority
                     />
                   )}
                 </SwiperSlide>

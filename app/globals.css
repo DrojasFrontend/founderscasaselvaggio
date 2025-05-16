@@ -1,6 +1,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #1A3C34;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -10,8 +11,42 @@
   }
 }
 
+@font-face {
+	font-family: "Bilo";
+	src: url("/fonts/Bilo.woff2") format("woff2"),
+		url("/fonts/Bilo.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Bilo";
+	src: url("/fonts/Bilo-Light.woff2") format("woff2"),
+		url("/fonts/Bilo-Light.woff") format("woff");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Bilo";
+	src: url("/fonts/Bilo-Bold.woff2") format("woff2"),
+		url("/fonts/Bilo-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "DidotLTStd";
+	src: url("/fonts/DidotLTStd-Bold.woff2") format("woff2"),
+		url("/fonts/DidotLTStd-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+
 html,
 body {
+  font-family: "Bilo", serif !important;
   max-width: 100vw;
   overflow-x: hidden;
 }
@@ -42,13 +77,21 @@ a {
   }
 }
 
+.bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
 /* Header */
 header {
   z-index: 10;
 }
 
 .bg-header {
-  background-color: #1A3C34 !important;
+  background-color: var(--primary) !important;
 }
 
 .scroll-header img {
@@ -58,7 +101,7 @@ header {
 /* Footer */
 
 footer {
-  background-color: #1A3C34 !important;
+  background-color: var(--primary) !important;
 }
 
 .copyright {
@@ -151,7 +194,7 @@ footer {
 .modal-content {
   border-radius: 8px;
   border: none;
-  background-color: #1A3C34 !important;
+  background-color: var(--primary) !important;
   color: white;
 }
 
@@ -172,7 +215,7 @@ footer {
 /* Botón blanco para el modal */
 .btn-white {
   background-color: white !important;
-  color: #1A3C34 !important;
+  color: var(--primary) !important;
   border-color: white !important;
   font-weight: bold !important;
   padding: 10px 30px !important;
@@ -181,7 +224,7 @@ footer {
 
 .btn-white:hover {
   background-color: #f8f9fa !important;
-  color: #1A3C34 !important;
+  color: var(--primary) !important;
 }
 
 @media (max-width: 768px) {
@@ -241,24 +284,24 @@ footer {
 .btn.btn-white {
   width: fit-content !important;
   background-color: #fff !important;
-  color: #1A3C34 !important;
-  border: 1px solid #1A3C34 !important;
+  color: var(--primary) !important;
+  border: 1px solid var(--primary) !important;
 }
 
 .progress-bar.bg-success {
-  background-color: #1A3C34 !important;
+  background-color: var(--primary) !important;
   --bs-bg-opacity: 1 !important;
 }
 
 .btn.btn-success {
-  background-color: #1A3C34 !important;
+  background-color: var(--primary) !important;
   --bs-bg-opacity: 1 !important;
   border: 0 !important;
 }
 
 .btn.btn-outline-secondary {
-  color: #1A3C34 !important;
-  border-color: #1A3C34 !important;
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
 }
 
 .react-tel-input .form-control {
@@ -309,7 +352,7 @@ header.bg-white {
 /* modal */
 .modal-content {
   border-radius: 0px !important;
-  background-color: #1A3C34 !important;
+  background-color: var(--primary) !important;
 }
 
 .react-tel-input .selected-flag {
@@ -319,7 +362,7 @@ header.bg-white {
 
 .btn.btn-outline-secondary:hover {
   background-color: #fff !important;
-  color: #1A3C34 !important;
+  color: var(--primary) !important;
 }
 
 /* Swiper */
@@ -328,7 +371,15 @@ header.bg-white {
 }
 
 .swiper-pagination-bullet-active {
-  background: #1A3C34 !important;
+  background: var(--primary) !important;
+}
+
+.customSeccionTextoImagen .bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.customSeccionTextoImagen li::marker {
+  color: #fff;
 }
 
 

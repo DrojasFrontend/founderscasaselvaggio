@@ -21,9 +21,10 @@ const TITULO_QUERY = `
   query GetVideo {
     page(id: "9", idType: DATABASE_ID) {
       paginaInicio {
-        grupo {
+        grupoTitulo {
           titulo
         }
+        mostrarTitulo
       }
     }
   }
@@ -99,11 +100,12 @@ export default async function Home() {
 
   const videoUrl = videoData?.page?.paginaInicio?.grupoHero?.video;
 
-  const titulo = tituloData?.page?.paginaInicio?.grupo?.titulo;
+  const titulo = tituloData?.page?.paginaInicio?.grupoTitulo?.titulo;
 
   const mostrarTextoImagen = textoImagenData?.page?.paginaInicio?.mostrarTextoImagen;
   const grupoTextoImagen = textoImagenData?.page?.paginaInicio?.grupoTextoImagen;
 
+  const mostrarTitulo = imagenTextoData?.page?.paginaInicio?.mostrarTitulo;
   const mostrarImagenTexto = imagenTextoData?.page?.paginaInicio?.mostrarImagenTexto;
   const grupoImagenTexto = imagenTextoData?.page?.paginaInicio?.grupoImagenTexto;
 
@@ -116,13 +118,15 @@ export default async function Home() {
         <Video videoUrl={videoUrl} />
       </div>
 
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-lg-7 m-auto text-center">
-            <h1>{titulo}</h1>
+      {mostrarTitulo && (
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-lg-7 m-auto text-center">
+              <h1>{titulo}</h1>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {mostrarTextoImagen && <TextoImagen grupo={grupoTextoImagen} className="flex-column-reverse flex-lg-row" />}
       {mostrarImagenTexto && <TextoImagen grupo={grupoImagenTexto} className="flex-column-reverse flex-lg-row-reverse" />}
