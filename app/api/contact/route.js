@@ -12,7 +12,6 @@ export async function POST(request) {
       instagram, 
       comoNosConociste, 
       experienciaViaje,
-      valorExperiencias,
       importanciaCompartir,
       ritualPersonal,
       filosofiaViaje
@@ -65,7 +64,6 @@ export async function POST(request) {
         
         <h2>Información adicional</h2>
         <p><strong>Experiencia de viaje transformadora:</strong> ${experienciaViaje || 'No proporcionado'}</p>
-        <p><strong>Valoración de experiencias:</strong> ${valorExperiencias || 'No proporcionado'}</p>
         <p><strong>Importancia de compartir experiencias:</strong> ${importanciaCompartir || 'No proporcionado'}</p>
         <p><strong>Ritual personal en viajes:</strong> ${ritualPersonal || 'No proporcionado'}</p>
         <p><strong>Filosofía de viaje en tres palabras:</strong> ${filosofiaViaje || 'No proporcionado'}</p>

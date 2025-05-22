@@ -17,7 +17,6 @@ const MultiStepForm = () => {
     instagram: '',
     comoNosConociste: '',
     experienciaViaje: '',
-    valorExperiencias: '',
     importanciaCompartir: '',
     ritualPersonal: '',
     filosofiaViaje: ''
@@ -120,7 +119,6 @@ const MultiStepForm = () => {
           instagram: '',
           comoNosConociste: '',
           experienciaViaje: '',
-          valorExperiencias: '',
           importanciaCompartir: '',
           ritualPersonal: '',
           filosofiaViaje: ''
@@ -291,24 +289,6 @@ const MultiStepForm = () => {
               </Col>
               <Col md={6}>
                 <Form.Group className="mb-4 bg-white p-2 px-3">
-                  <Form.Label>El valor de nuestras experiencias refleja su excepcionalidad. ¿Valoras la calidad por encima del precio en tus viajes?</Form.Label>
-                  <Form.Control
-                    className="border-bottom rounded-0"
-                    as="textarea"
-                    rows={1}
-                    name="valorExperiencias"
-                    value={formData.valorExperiencias}
-                    onChange={handleChange}
-                    autoComplete="off"
-                    required
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
-
-            <Row className="mb-4">
-              <Col md={6}>
-                <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>¿Qué importancia tiene para ti compartir experiencias extraordinarias con personas que comparten tu visión de vida?</Form.Label>
                   <Form.Control
                     className="border-bottom rounded-0"
@@ -321,6 +301,9 @@ const MultiStepForm = () => {
                   />
                 </Form.Group>
               </Col>
+            </Row>
+
+            <Row className="mb-4">
               <Col md={6}>
                 <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>¿Qué ritual personal nunca falta en tus viajes?</Form.Label>
@@ -335,10 +318,7 @@ const MultiStepForm = () => {
                   />
                 </Form.Group>
               </Col>
-            </Row>
-
-            <Row className="mb-4">
-              <Col md={12}>
+              <Col md={6}>
                 <Form.Group className="mb-4 bg-white p-2 px-3">
                   <Form.Label>Si pudieras definir tu filosofía de viaje en tres palabras, ¿cuáles serían?</Form.Label>
                   <Form.Control
