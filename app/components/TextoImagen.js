@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -19,6 +19,7 @@ const TextoImagen = ({ grupo, className }) => {
   const fraseResaltar = "Selvaggio es una comunidad exclusiva";
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
+  const swiperRef = useRef(null);
 
   const slides = grupo?.items?.map(item => ({
     src: item.imagen?.node?.mediaItemUrl,
@@ -32,9 +33,47 @@ const TextoImagen = ({ grupo, className }) => {
           <div className="d-flex flex-column col-12 col-lg-6">
             <div className='bg-primary p-lg-5 p-4 h-100 mt-4 mt-lg-0'>
               <h2 className='text-center text-white mb-4'>{grupo?.titulo}</h2>
-              <div className=''>
-                {parse(descripcion)}
-              </div>
+              {descripcion ? (
+                parse(descripcion)
+              ) : (
+                <div className=''>
+                  <Swiper
+                    onSwiper={(swiper) => {
+                      swiperRef.current = swiper;
+                    }}
+                    modules={[Navigation, Pagination]}
+                    spaceBetween={30}
+                    slidesPerView={1}
+                    navigation={false}
+                    pagination={false}
+                    className="mySwiper"
+                  >
+                    {grupo?.bloques?.map((bloque, idx) => (
+                      <SwiperSlide key={idx}>
+                        {parse(bloque.texto)}
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                  <div className="swiper-navigation-buttons d-flex justify-content-center mt-5">
+                    <button
+                      className="btn btn-light me-2"
+                      onClick={() => swiperRef.current?.slidePrev()}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 18l-6-6 6-6" />
+                      </svg>
+                    </button>
+                    <button
+                      className="btn btn-light"
+                      onClick={() => swiperRef.current?.slideNext()}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M9 18l6-6-6-6" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           <div className="col-12 col-lg-6">
@@ -58,13 +97,13 @@ const TextoImagen = ({ grupo, className }) => {
                         height={500}
                         quality={100}
                         priority
-                        style={{ 
+                        style={{
                           cursor: 'pointer',
                           objectFit: 'cover',
                           width: '100%'
                         }}
                       />
-                      <div 
+                      <div
                         className="position-absolute top-0 end-0 m-2 bg-white rounded-circle p-2"
                         style={{ cursor: 'pointer' }}
                         onClick={() => {
@@ -73,7 +112,7 @@ const TextoImagen = ({ grupo, className }) => {
                         }}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                          <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
                         </svg>
                       </div>
                     </>

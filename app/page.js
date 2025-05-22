@@ -68,6 +68,9 @@ const IMAGEN_TEXTO__QUERY = `
               }
             }
           }
+          bloques {
+            texto
+          }
         }
       }
     }

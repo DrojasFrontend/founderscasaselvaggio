@@ -386,6 +386,17 @@ header.bg-white {
   display: block;
 }
 
+.customSeccionTextoImagen .swiper-button-prev,
+.customSeccionTextoImagen .swiper-button-next {
+  color: #fff !important;
+}
+
+.customSeccionTextoImagen .swiper-button-prev:after,
+.customSeccionTextoImagen .swiper-rtl .swiper-button-next:after,
+.customSeccionTextoImagen .swiper-button-next:after {
+  font-size: 24px !important;
+}
+
 @media (min-width: 992px) {
   .custom-image-height {
     height: 620px !important;
