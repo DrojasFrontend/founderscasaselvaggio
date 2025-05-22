@@ -106,6 +106,16 @@ const MultiStepForm = () => {
       const data = await response.json();
 
       if (response.ok) {
+        // Trackear evento de formulario completado
+        if (typeof window !== 'undefined' && window.fbq) {
+          window.fbq('track', 'Lead', {
+            content_name: 'Formulario de Contacto',
+            content_category: 'Contacto',
+            value: 1,
+            currency: 'COP'
+          });
+        }
+
         setSubmitStatus({
           success: true,
           message: 'Mensaje enviado con éxito. Nos pondremos en contacto pronto.'

@@ -4,6 +4,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ApolloProvider } from '@apollo/client'
 import client from './lib/apollo-client'
 import ApolloWrapper from "./lib/ApolloWrapper";
+import FacebookPixel from './components/FacebookPixel';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
       {/* <body className={inter.className}> */}
       <body>
         <ApolloWrapper>
+          <FacebookPixel />
           {children}
         </ApolloWrapper>
       </body>
