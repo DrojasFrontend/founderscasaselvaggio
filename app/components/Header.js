@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Logo from './Logo';
 
-const Header = () => {
+const Header = ( {className }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,8 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`text-center position-fixed top-0 left-0 right-0 w-100 transition-all duration-300 ${scrolled ? 'bg-header scroll-header' : 'py-lg-3 py-0'}`}>
+
+    <header className={`text-center position-fixed top-0 left-0 right-0 w-100 transition-all duration-300 ${scrolled ? 'bg-header scroll-header' : 'py-lg-3 py-0'} ${className}`}>
       <Logo />
     </header>
   );

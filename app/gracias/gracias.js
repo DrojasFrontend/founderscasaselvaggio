@@ -76,8 +76,8 @@ export default function GraciasPage() {
 
     return (
         <main>
-            <Header />
-            <section>
+            <Header className="bg-header" />
+            <section className='pt-5 mt-5'>
                 <div className="container pt-lg-5" style={{ minHeight: '100vh' }}>
                     <div className="row align-items-center" style={{ minHeight: '100vh' }}>
                         <div className="col-12 col-lg-5">
@@ -89,12 +89,13 @@ export default function GraciasPage() {
                                     height={585}
                                     priority
                                     quality={100}
+                                    className="mb-4 w-100"
                                     style={{
                                         cursor: 'pointer',
-                                        objectFit: 'contain',
-                                        width: '100%'
+                                        objectFit: 'cover',
+                                        width: '100%',
+                                        height: 'auto'
                                     }}
-                                    className="mb-4"
                                 />
                             )}
                         </div>
