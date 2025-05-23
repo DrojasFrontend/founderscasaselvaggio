@@ -68,16 +68,30 @@ const FOOTER_QUERY = gql`
 `;
 
 export default function GraciasPage() {
-    const { data: dataGracias } = useQuery(GET_GRACIAS_PAGE);
-    const { data: dataFooter } = useQuery(FOOTER_QUERY);
+    const { data: dataGracias, loading: loadingGracias } = useQuery(GET_GRACIAS_PAGE);
+    const { data: dataFooter, loading: loadingFooter } = useQuery(FOOTER_QUERY);
 
     const grupo = dataGracias?.page?.paginaGracias?.grupo;
     const grupoFooter = dataFooter?.page?.paginaInicio?.grupoFooter;
 
+    if (loadingGracias || loadingFooter) {
+        return (
+            <main>
+                <Header className="bg-header" />
+                <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+                    <div className="spinner-border text-success" role="status">
+                        <span className="visually-hidden">Cargando...</span>
+                    </div>
+                </div>
+                <Footer />
+            </main>
+        );
+    }
+
     return (
         <main>
             <Header className="bg-header" />
-            <section className='pt-5 mt-5'>
+            <section className='pt-5 mt-lg-0 mt-5'>
                 <div className="container pt-lg-5" style={{ minHeight: '100vh' }}>
                     <div className="row align-items-center" style={{ minHeight: '100vh' }}>
                         <div className="col-12 col-lg-5">
