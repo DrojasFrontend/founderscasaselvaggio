@@ -272,13 +272,14 @@ footer {
 }
 
 .btn {
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Bilo', serif !important;
   font-weight: bold !important;
   padding: 10px 20px !important;
   border-radius: 4px 0 4px 0 !important;
 }
 
 .btn.btn-white {
+  font-family: 'Bilo', serif !important;
   width: fit-content !important;
   background-color: #fff !important;
   color: var(--primary) !important;

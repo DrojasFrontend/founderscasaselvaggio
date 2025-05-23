@@ -4,10 +4,12 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, Container, Row, Col, ProgressBar, Modal } from 'react-bootstrap';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
+import { useRouter } from 'next/navigation';
 
 import Image from 'next/image';
 
 const MultiStepForm = () => {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     nombre: '',
@@ -259,8 +261,8 @@ const MultiStepForm = () => {
           filosofiaViaje: ''
         });
         setStep(1);
-        // Mostrar el modal de agradecimiento
-        setShowThankYouModal(true);
+        // Redirigir a la página de gracias
+        router.push('/gracias');
       } else {
         throw new Error(data.message || 'Error al enviar el formulario');
       }
@@ -546,7 +548,7 @@ const MultiStepForm = () => {
       </Row>
 
       {/* Modal de agradecimiento */}
-      <Modal show={showThankYouModal} onHide={handleCloseThankYouModal} centered>
+      {/* <Modal show={showThankYouModal} onHide={handleCloseThankYouModal} centered>
         <div className='d-flex justify-content-center p-4'>
           <Image
             src="/images/logo-casaselvaggio-founders.svg"
@@ -563,7 +565,7 @@ const MultiStepForm = () => {
         <Button className='d-inline-block btn btn-white m-auto mb-4' onClick={handleCloseThankYouModal}>
           Cerrar
         </Button>
-      </Modal>
+      </Modal> */}
     </Container>
   );
 };
