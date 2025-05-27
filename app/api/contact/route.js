@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import { NextResponse } from 'next/server';
+import { appendToSheet } from '@/app/lib/googleSheets';
 
 export async function POST(request) {
   try {
@@ -73,15 +74,36 @@ export async function POST(request) {
     // Enviar el correo electrónico
     await transporter.sendMail(mailOptions);
 
+    // Preparar los datos para Google Sheets
+    const values = [
+      new Date().toISOString(), // Fecha y hora
+      nombre,
+      apellidos,
+      email,
+      telefono,
+      instagram,
+      comoNosConociste,
+      experienciaViaje,
+      importanciaCompartir,
+      ritualPersonal,
+      filosofiaViaje
+    ];
+
+    // Guardar en Google Sheets
+    await appendToSheet(values);
+
     // Retornar respuesta exitosa
     return NextResponse.json(
       { message: 'Formulario enviado correctamente' },
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error al enviar mensaje:', error);
+    console.error('Error al procesar el formulario:', error);
     return NextResponse.json(
-      { message: 'Error al enviar formulario: ' + error.message },
+      { 
+        success: false, 
+        message: 'Error al procesar el formulario' 
+      },
       { status: 500 }
     );
   }
